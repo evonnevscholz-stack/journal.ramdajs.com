@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RamdaJS Journal | A Practical Guide to Functional Programming</title>
+    <meta name="description" content="Deep dives, tutorials, and practical examples for mastering Ramda.js and functional programming in JavaScript.">
+    <meta name="keywords" content="Ramda.js, JavaScript, Functional Programming, FP, Tutorial, Blog">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">λ</span>
+                <span class="logo-text">RamdaJS <strong>Journal</strong></span>
+            </a>
+            
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link active">Home</a></li>
+                <li><a href="#articles" class="nav-link">Articles</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="#resources" class="nav-link">Resources</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="menu-toggle" id="menuToggle" aria-label="Toggle mobile menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="container hero-container">
+            <div class="hero-content">
+                <span class="hero-badge">Functional Programming Blog</span>
+                <h1 class="hero-title">Master <span class="highlight">Ramda.js</span> with Practical Examples</h1>
+                <p class="hero-description">
+                    Explore in-depth tutorials, real-world use cases, and advanced patterns 
+                    for functional programming in JavaScript using Ramda.js.
+                </p>
+                <div class="hero-actions">
+                    <a href="#articles" class="btn btn-primary">
+                        <i class="fas fa-book-open"></i> Read Articles
+                    </a>
+                    <a href="#resources" class="btn btn-secondary">
+                        <i class="fas fa-download"></i> Get Cheatsheet
+                    </a>
+                </div>
+            </div>
+            <div class="hero-code">
+                <pre><code class="language-javascript">
+// Example: Functional data transformation
+const users = [
+  { name: 'Alice', age: 30, active: true },
+  { name: 'Bob', age: 25, active: false },
+  { name: 'Charlie', age: 35, active: true }
+];
+
+const getActiveUserNames = R.pipe(
+  R.filter(R.propEq('active', true)),
+  R.map(R.prop('name')),
+  R.sortBy(R.identity)
+);
+
+const activeNames = getActiveUserNames(users);
+// ['Alice', 'Charlie']
+                </code></pre>
+            </div>
+        </div>
+    </header>
+
+    <!-- Featured Articles Section -->
+    <section id="articles" class="section articles-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Featured Articles</h2>
+                <p class="section-subtitle">Latest tutorials and deep dives into Ramda.js</p>
+            </div>
+            
+            <div class="articles-grid">
+                <!-- Article 1 -->
+                <article class="article-card">
+                    <div class="article-category">Beginner</div>
+                    <div class="article-image">
+                        <img src="images/articles/ramda-basics.jpg" alt="Ramda.js Basics">
+                    </div>
+                    <div class="article-content">
+                        <h3 class="article-title">
+                            <a href="articles/getting-started-with-ramda.html">Getting Started with Ramda.js</a>
+                        </h3>
+                        <p class="article-excerpt">
+                            Learn the core concepts of Ramda.js and how it differs from other 
+                            functional libraries. Master currying, immutability, and function composition.
+                        </p>
+                        <div class="article-meta">
+                            <span class="meta-item">
+                                <i class="far fa-clock"></i> 12 min read
+                            </span>
+                            <span class="meta-item">
+                                <i class="far fa-calendar"></i> Jan 15, 2026
+                            </span>
+                        </div>
+                    </div>
+                </article>
+                
+                <!-- Article 2 -->
+                <article class="article-card">
+                    <div class="article-category">Intermediate</div>
+                    <div class="article-image">
+                        <img src="images/articles/function-composition.jpg" alt="Function Composition">
+                    </div>
+                    <div class="article-content">
+                        <h3 class="article-title">
+                            <a href="articles/functional-patterns.html">Functional Patterns with Ramda</a>
+                        </h3>
+                        <p class="article-excerpt">
+                            Discover practical patterns for data transformation, error handling, 
+                            and asynchronous operations using Ramda's functional approach.
+                        </p>
+                        <div class="article-meta">
+                            <span class="meta-item">
+                                <i class="far fa-clock"></i> 18 min read
+                            </span>
+                            <span class="meta-item">
+                                <i class="far fa-calendar"></i> Jan 8, 2026
+                            </span>
+                        </div>
+                    </div>
+                </article>
+                
+                <!-- Article 3 -->
+                <article class="article-card">
+                    <div class="article-category">Advanced</div>
+                    <div class="article-image">
+                        <img src="images/articles/advanced-techniques.jpg" alt="Advanced Techniques">
+                    </div>
+                    <div class="article-content">
+                        <h3 class="article-title">
+                            <a href="articles/advanced-techniques.html">Advanced Ramda Techniques</a>
+                        </h3>
+                        <p class="article-excerpt">
+                            Dive into lenses, transducers, and custom combinators to take your 
+                            functional programming skills to the next level.
+                        </p>
+                        <div class="article-meta">
+                            <span class="meta-item">
+                                <i class="far fa-clock"></i> 25 min read
+                            </span>
+                            <span class="meta-item">
+                                <i class="far fa-calendar"></i> Dec 28, 2025
+                            </span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            
+            <div class="section-footer">
+                <a href="#all-articles" class="btn btn-outline">
+                    <i class="fas fa-arrow-right"></i> View All Articles
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resources Section -->
+    <section id="resources" class="section resources-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Ramda.js Resources</h2>
+                <p class="section-subtitle">Tools and references to accelerate your learning</p>
+            </div>
+            
+            <div class="resources-grid">
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-file-pdf"></i>
+                    </div>
+                    <h3>Cheatsheet</h3>
+                    <p>Downloadable PDF with all essential Ramda functions and patterns.</p>
+                    <a href="assets/downloads/cheatsheet.pdf" class="resource-link">Download →</a>
+                </div>
+                
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Code Examples</h3>
+                    <p>Collection of practical examples for common use cases and patterns.</p>
+                    <a href="https://github.com/ramda/ramda" class="resource-link">Browse →</a>
+                </div>
+                
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h3>Video Tutorials</h3>
+                    <p>Screencasts demonstrating Ramda.js concepts in action.</p>
+                    <a href="#videos" class="resource-link">Watch →</a>
+                </div>
+                
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Community</h3>
+                    <p>Join discussions with other developers learning functional programming.</p>
+                    <a href="https://github.com/ramda/ramda/discussions" class="resource-link">Join →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="section newsletter-section">
+        <div class="container newsletter-container">
+            <div class="newsletter-content">
+                <h2 class="newsletter-title">Stay Updated</h2>
+                <p class="newsletter-description">
+                    Get the latest articles, tutorials, and Ramda.js tips delivered directly to your inbox.
+                </p>
+            </div>
+            <form class="newsletter-form" id="newsletterForm">
+                <div class="form-group">
+                    <input type="email" placeholder="Your email address" required>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-paper-plane"></i> Subscribe
+                    </button>
+                </div>
+                <p class="form-notice">No spam. Unsubscribe at any time.</p>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <a href="index.html" class="footer-logo">
+                        <span class="logo-icon">λ</span>
+                        <span class="logo-text">RamdaJS <strong>Journal</strong></span>
+                    </a>
+                    <p class="footer-description">
+                        A practical guide to functional programming with Ramda.js. 
+                        Tutorials, examples, and resources for JavaScript developers.
+                    </p>
+                    <div class="social-links">
+                        <a href="https://github.com/ramda" aria-label="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://twitter.com/ramdajs" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://discord.gg/ramda" aria-label="Discord">
+                            <i class="fab fa-discord"></i>
+                        </a>
+                        <a href="https://www.youtube.com/c/RamdaJS" aria-label="YouTube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="#articles">Articles</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="#resources">Resources</a></li>
+                        <li><a href="#privacy">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Categories</h3>
+                    <ul class="footer-links">
+                        <li><a href="#beginner">Beginner Guides</a></li>
+                        <li><a href="#intermediate">Intermediate Tutorials</a></li>
+                        <li><a href="#advanced">Advanced Topics</a></li>
+                        <li><a href="#case-studies">Case Studies</a></li>
+                        <li><a href="#performance">Performance Tips</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; <span id="currentYear">2026</span> RamdaJS Journal. All rights reserved.</p>
+                <p>Not affiliated with the official Ramda.js library.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Files -->
+    <script src="js/main.js"></script>
+    <script src="js/prism.js"></script>
+    <script>
+        // Set current year in footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.querySelector('.nav-menu');
+        
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            menuToggle.innerHTML = navMenu.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Theme toggle
+        const themeToggle = document.getElementById('themeToggle');
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-theme');
+            themeToggle.innerHTML = document.body.classList.contains('dark-theme')
+                ? '<i class="fas fa-sun"></i>'
+                : '<i class="fas fa-moon"></i>';
+        });
+    </script>
+</body>
+</html>
